@@ -1,34 +1,16 @@
 package main;
 
-import main.model.Provider;
-import main.vo.JobPosting;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import main.model.Model;
 
 public class Controller {
-    private Provider[] providers;
+    private Model model;
 
-    public Controller(Provider... providers) {
-        if (providers == null || providers.length == 0) throw new IllegalArgumentException();
-        this.providers = providers;
+    public Controller(Model model) {
+        if (model == null) throw new IllegalArgumentException();
+        this.model = model;
     }
 
-    @Override
-    public String toString() {
-        return "Controller{" +
-                "providers=" + Arrays.toString(providers) +
-                '}';
-    }
-
-    public void scan() {
-        ArrayList<JobPosting> list = new ArrayList<>();
-        for (Provider provider : providers) {
-            if (provider != null) {
-                list.addAll(provider.getJavaJobPostings("San+Francisco"));
-            }
-        }
-        System.out.println(list.size());
+    public void onCitySelected(String cityName){
+        model.selectCity(cityName);
     }
 }
