@@ -7,4 +7,5 @@ This task is about creating job posting aggregator. It will collect ads from sev
 
 __________________________________________________________
 My takeaways: <br>
+-> Practice with Strategy pattern <br>
 -> 
