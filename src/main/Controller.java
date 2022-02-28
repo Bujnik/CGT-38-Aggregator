@@ -24,14 +24,11 @@ public class Controller {
 
     public void scan() {
         ArrayList<JobPosting> list = new ArrayList<>();
-        int sum = 0;
         for (Provider provider : providers) {
             if (provider != null) {
-                List<JobPosting> tempList = provider.getJavaJobPostings("java");
-                list.addAll(tempList);
-                sum += tempList.size();
+                list.addAll(provider.getJavaJobPostings("java"));
             }
         }
-        System.out.println(sum);
+        System.out.println(list.size());
     }
 }
