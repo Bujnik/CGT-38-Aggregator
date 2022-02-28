@@ -3,6 +3,9 @@ package main.view;
 import main.Controller;
 import main.vo.JobPosting;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class HtmlView implements View{
@@ -30,8 +33,13 @@ public class HtmlView implements View{
         return null;
     }
 
-    private void updateFile(String s){
 
+    private void updateFile(String s){
+        try (FileOutputStream fos = new FileOutputStream(filePath)){
+            fos.write(s.getBytes(StandardCharsets.UTF_8));
+        }
+        catch (IOException ignored){
+        }
     }
 
 
